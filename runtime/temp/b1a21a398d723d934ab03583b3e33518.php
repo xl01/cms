@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:83:"D:\myphp_www\PHPTutorial\WWW\6cms\public/../application/admin\view\index\index.html";i:1560175140;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -10,20 +11,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!--Basic Styles-->
-    <link href="__WEBSTATIC__css/admin/bootstrap.css" rel="stylesheet">
-    <link href="__WEBSTATIC__css/admin/font-awesome.css" rel="stylesheet">
-    <link href="__WEBSTATIC__css/admin/weather-icons.css" rel="stylesheet">
+    <link href="http://my.cms.com/static/css/admin/bootstrap.css" rel="stylesheet">
+    <!-- <link href="http://my.cms.com/static/css/admin/font-awesome.css" rel="stylesheet"> -->
+    <link href="http://my.cms.com/static/css/admin/weather-icons.css" rel="stylesheet">
 
     <!--Beyond styles-->
-    <link id="beyond-link" href="__WEBSTATIC__/css/admin/beyond.css" rel="stylesheet" type="text/css">
-    <link href="__WEBSTATIC__css/admin/demo.css" rel="stylesheet">
-    <link href="__WEBSTATIC__css/admin/typicons.css" rel="stylesheet">
-    <link href="__WEBSTATIC__css/admin/animate.css" rel="stylesheet">
+    <link id="beyond-link" href="http://my.cms.com/static//css/admin/beyond.css" rel="stylesheet" type="text/css">
+    <link href="http://my.cms.com/static/css/admin/demo.css" rel="stylesheet">
+    <link href="http://my.cms.com/static/css/admin/typicons.css" rel="stylesheet">
+    <link href="http://my.cms.com/static/css/admin/animate.css" rel="stylesheet">
 
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <!--弹窗类的加载-->
-    {load href="__WEBSTATIC__js/dialog/layer.js"}
-    {load href="__WEBSTATIC__js/dialog.js"}
+    <script type="text/javascript" src="http://my.cms.com/static/js/dialog/layer.js"></script>
+    <script type="text/javascript" src="http://my.cms.com/static/js/dialog.js"></script>
 
 </head>
 
@@ -39,7 +40,7 @@
                 <div class="navbar-header pull-left">
                     <a href="#" class="navbar-brand">
                         <small>
-                            <img src="__WEBSTATIC__img/logo.png" alt="">
+                            <img src="http://my.cms.com/static/img/logo.png" alt="">
                         </small>
                     </a>
                 </div>
@@ -56,7 +57,7 @@
                             <li>
                                 <a class="login-area dropdown-toggle" data-toggle="dropdown">
                                     <div class="avatar" title="View your public profile">
-                                        <img src="__WEBSTATIC__img/adam-jansen.jpg">
+                                        <img src="http://my.cms.com/static/img/adam-jansen.jpg">
                                     </div>
                                     <section>
                                         <h2><span class="profile"><span>admin</span></span></h2>
@@ -113,7 +114,7 @@
                         </a>
                         <ul class="submenu">
                             <li>
-                                <a href="javascript:void(0)" data-src="{:url('welcome')}">
+                                <a href="javascript:void(0)" data-src="<?php echo url('welcome'); ?>">
                                     <span class="menu-text">
                                         首页 </span>
                                     <!-- <i class="menu-expand"></i> -->
@@ -255,19 +256,19 @@
             <div class="page-content">
 
                 <!-- Page Body -->
-                <iframe src="{:url('welcome')}" id="iframe" width="100%" height="600px" frameborder="0"></iframe>
+                <iframe src="<?php echo url('welcome'); ?>" id="iframe" width="100%" height="600px" frameborder="0"></iframe>
                 <!-- /Page Body -->
             </div>
             <!-- /Page Content -->
         </div>
 
         <!--Basic Scripts-->
-        <script src="__WEBSTATIC__js/admin/jquery_002.js"></script>
-        <script src="__WEBSTATIC__js/admin/bootstrap.js"></script>
-        <script src="__WEBSTATIC__js/admin/jquery.js"></script>
+        <script src="http://my.cms.com/static/js/admin/jquery_002.js"></script>
+        <script src="http://my.cms.com/static/js/admin/bootstrap.js"></script>
+        <script src="http://my.cms.com/static/js/admin/jquery.js"></script>
         <!--Beyond Scripts-->
-        <script src="__WEBSTATIC__js/admin/beyond.js"></script>
-		<script src="__WEBSTATIC__js/admin/iframe.js"></script>
+        <script src="http://my.cms.com/static/js/admin/beyond.js"></script>
+		<script src="http://my.cms.com/static/js/admin/iframe.js"></script>
         <script>
             $(document).ready(function () {
                 $(".submenu li a").click(function () {
