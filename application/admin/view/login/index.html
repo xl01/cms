@@ -1,0 +1,41 @@
+{include file="common/header"}
+    <div class="login-container animated fadeInDown">
+        <form action="" id="loginform" method="post">
+            <div class="loginbox bg-white">
+                <div class="loginbox-title">用户登录</div>
+                <div class="loginbox-textbox">
+                    <input value="admin" class="form-control" placeholder="username" name="username" type="text">
+                </div>
+                <div class="loginbox-textbox">
+                    <input class="form-control" placeholder="password" name="password" type="password">
+                </div>
+                <div class="loginbox-submit">
+                    <input id="loginbtn" class="btn btn-primary btn-block" value="Login" type="button">
+                </div>
+            </div>
+            <div class="logobox">
+                <p class="text-center">hello word</p>
+            </div>
+        </form>
+    </div>
+
+    <!--登录逻辑的实现-->
+    <script>
+        var lg=new FormHelper();
+        lg.button='#loginbtn';
+        lg.form='#loginform';
+        lg.url="{:url('check')}";
+        lg.tourl="{:url('index')}";
+        lg.init();
+    </script>
+    <!--Basic Scripts-->
+
+    <!-- <script src="style/bootstrap.js"></script>
+    <script src="style/jquery_002.js"></script> -->
+    <!--Beyond Scripts-->
+    <!-- <script src="style/beyond.js"></script> -->
+
+
+
+
+{include file="common/footer"}

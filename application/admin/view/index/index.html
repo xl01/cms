@@ -1,36 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <title>童老师ThinkPHP交流群：484519446</title>
-
-    <meta name="description" content="Dashboard">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!--Basic Styles-->
-    <link href="__WEBSTATIC__css/admin/bootstrap.css" rel="stylesheet">
-    <link href="__WEBSTATIC__css/admin/font-awesome.css" rel="stylesheet">
-    <link href="__WEBSTATIC__css/admin/weather-icons.css" rel="stylesheet">
-
-    <!--Beyond styles-->
-    <link id="beyond-link" href="__WEBSTATIC__/css/admin/beyond.css" rel="stylesheet" type="text/css">
-    <link href="__WEBSTATIC__css/admin/demo.css" rel="stylesheet">
-    <link href="__WEBSTATIC__css/admin/typicons.css" rel="stylesheet">
-    <link href="__WEBSTATIC__css/admin/animate.css" rel="stylesheet">
-
-    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-    <!--弹窗类的加载-->
-    {load href="__WEBSTATIC__js/dialog/layer.js"}
-    {load href="__WEBSTATIC__js/dialog.js"}
-
-</head>
-
-<body>
-    <script>
-        // dialog.error('配置成功');
-    </script>
+{include file="common/header"}
     <!-- 头部 -->
     <div class="navbar">
         <div class="navbar-inner">
@@ -39,7 +7,7 @@
                 <div class="navbar-header pull-left">
                     <a href="#" class="navbar-brand">
                         <small>
-                            <img src="__WEBSTATIC__img/logo.png" alt="">
+                            <img src="images/logo.png" alt="">
                         </small>
                     </a>
                 </div>
@@ -56,7 +24,7 @@
                             <li>
                                 <a class="login-area dropdown-toggle" data-toggle="dropdown">
                                     <div class="avatar" title="View your public profile">
-                                        <img src="__WEBSTATIC__img/adam-jansen.jpg">
+                                        <img src="images/adam-jansen.jpg">
                                     </div>
                                     <section>
                                         <h2><span class="profile"><span>admin</span></span></h2>
@@ -113,7 +81,7 @@
                         </a>
                         <ul class="submenu">
                             <li>
-                                <a href="javascript:void(0)" data-src="{:url('welcome')}">
+                                <a href="javascript:void(0)" data-src="welcome.html">
                                     <span class="menu-text">
                                         首页 </span>
                                     <!-- <i class="menu-expand"></i> -->
@@ -255,19 +223,14 @@
             <div class="page-content">
 
                 <!-- Page Body -->
-                <iframe src="{:url('welcome')}" id="iframe" width="100%" height="600px" frameborder="0"></iframe>
+                <iframe src="{:url('admin/index/welcome')}" id="iframe" width="100%" height="600px" frameborder="0"></iframe>
                 <!-- /Page Body -->
             </div>
             <!-- /Page Content -->
         </div>
 
-        <!--Basic Scripts-->
-        <script src="__WEBSTATIC__js/admin/jquery_002.js"></script>
-        <script src="__WEBSTATIC__js/admin/bootstrap.js"></script>
-        <script src="__WEBSTATIC__js/admin/jquery.js"></script>
-        <!--Beyond Scripts-->
-        <script src="__WEBSTATIC__js/admin/beyond.js"></script>
-		<script src="__WEBSTATIC__js/admin/iframe.js"></script>
+
+		<script src="__WEBSTATIC__admin/style/iframe.js"></script>
         <script>
             $(document).ready(function () {
                 $(".submenu li a").click(function () {
@@ -276,8 +239,4 @@
                 });
             });
         </script>
-
-
-</body>
-
-</html>
+{include file="common/footer"}
