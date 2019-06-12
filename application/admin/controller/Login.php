@@ -8,7 +8,12 @@ class Login extends Base
         return $this->fetch();
     }
     public function check(){
-        $param=$this->request->param();
+        $param=[
+            'username'=>'username',
+            'password'=>'password'
+        ];
+        $param=self::buildParam($param);
+        
         self::show(1,'数据返回',$param);
     }
 }

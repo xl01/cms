@@ -52,4 +52,6 @@ return [
     'user/update/:id'=>'index/user/update',
     'user/delete/:id'=>'index/user/delete',
     'user/:id'=>'index/user/read',
+    //后台路由规则定义
+    'a/login'=>'admin/login/index'
 ];

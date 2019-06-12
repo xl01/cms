@@ -1,4 +1,33 @@
-{include file="common/header"}
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:83:"E:\myphp_www\PHPTutorial\WWW\6cms\public/../application/admin\view\index\index.html";i:1560328666;s:75:"E:\myphp_www\PHPTutorial\WWW\6cms\application\admin\view\common\header.html";i:1560235848;s:75:"E:\myphp_www\PHPTutorial\WWW\6cms\application\admin\view\common\footer.html";i:1560220052;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>测试架构项目</title>
+
+    <meta name="description" content="Dashboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--Basic Styles-->
+    <link href="http://my.cms.com/static/admin/style/bootstrap.css" rel="stylesheet">
+    <link href="http://my.cms.com/static/admin/style/font-awesome.css" rel="stylesheet">
+    <link href="http://my.cms.com/static/admin/style/weather-icons.css" rel="stylesheet">
+
+    <!--Beyond styles-->
+    <link id="beyond-link" href="http://my.cms.com/static/admin/style/beyond.css" rel="stylesheet" type="text/css">
+    <link href="http://my.cms.com/static/admin/style/demo.css" rel="stylesheet">
+    <link href="http://my.cms.com/static/admin/style/typicons.css" rel="stylesheet">
+    <link href="http://my.cms.com/static/admin/style/animate.css" rel="stylesheet">
+
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!--弹出框-->
+    <script type="text/javascript" src="http://my.cms.com/static/dialog/layer.js"></script>
+    <script type="text/javascript" src="http://my.cms.com/static/dialog.js"></script>
+    <script type="text/javascript" src="http://my.cms.com/static/form.js"></script>
+</head>
+
+<body>
     <!-- 头部 -->
     <div class="navbar">
         <div class="navbar-inner">
@@ -7,7 +36,7 @@
                 <div class="navbar-header pull-left">
                     <a href="#" class="navbar-brand">
                         <small>
-                            <img src="__WEBSTATIC__admin/images/logo.png" alt="">
+                            <img src="http://my.cms.com/static/admin/images/logo.png" alt="">
                         </small>
                     </a>
                 </div>
@@ -24,7 +53,7 @@
                             <li>
                                 <a class="login-area dropdown-toggle" data-toggle="dropdown">
                                     <div class="avatar" title="View your public profile">
-                                        <img src="__WEBSTATIC__admin/images/adam-jansen.jpg">
+                                        <img src="http://my.cms.com/static/admin/images/adam-jansen.jpg">
                                     </div>
                                     <section>
                                         <h2><span class="profile"><span>admin</span></span></h2>
@@ -202,7 +231,7 @@
                         </a>
                         <ul class="submenu">
                                 <li>
-                                    <a href="javascript:void(0)" data-src="{:url('admin/user/add')}">
+                                    <a href="javascript:void(0)" data-src="<?php echo url('admin/user/add'); ?>">
                                         <span class="menu-text">
                                             添加用户 </span>
                                         <!-- <i class="menu-expand"></i> -->
@@ -232,14 +261,14 @@
             <div class="page-content">
 
                 <!-- Page Body -->
-                <iframe src="{:url('admin/index/welcome')}" id="iframe" width="100%" height="600px" frameborder="0"></iframe>
+                <iframe src="<?php echo url('admin/index/welcome'); ?>" id="iframe" width="100%" height="600px" frameborder="0"></iframe>
                 <!-- /Page Body -->
             </div>
             <!-- /Page Content -->
         </div>
 
 
-		<script src="__WEBSTATIC__admin/style/iframe.js"></script>
+		<script src="http://my.cms.com/static/admin/style/iframe.js"></script>
         <script>
             $(document).ready(function () {
                 $(".submenu li a").click(function () {
@@ -248,4 +277,10 @@
                 });
             });
         </script>
-{include file="common/footer"}
+        <!--Basic Scripts-->
+        <script src="http://my.cms.com/static/admin/style/bootstrap.js"></script>
+        <!--Beyond Scripts-->
+        <script src="http://my.cms.com/static/admin/style/beyond.js"></script>
+    </body>
+
+</html>
