@@ -41,7 +41,7 @@ FormHelper.prototype={
                     //成功
                     return dialog.success(res.message,that.tourl);
                 }else if(res.status==0){
-                    return dialog.error(result.message);
+                    return dialog.error(res.message);
                 }
             },'json');
 

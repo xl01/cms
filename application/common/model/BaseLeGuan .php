@@ -7,9 +7,7 @@
  * Time: 9:24
  */
 
-namespace app\base\model;
-
-
+namespace app\Common\model;
 
 use think\Db;
 use think\Debug;

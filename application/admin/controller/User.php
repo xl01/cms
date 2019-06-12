@@ -1,14 +1,17 @@
 <?php
 namespace app\admin\controller;
 
-class User extends Base
-{
+use think\Loader;
+
+class User extends Base{
     public function add(){
         return $this->fetch();
     }
     public function save(){
-        // $validate_name = "base/ProjectEnty.edit";
-        $model_name='base/User';
-        return json($this->editData(false,false,$model_name));
+        
+
+        $validate_name = "common/User.register";
+        $model_name='common/User';
+        return json($this->editData(false,$validate_name,$model_name));
     }
 }

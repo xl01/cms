@@ -1,8 +1,9 @@
 <?php
-namespace app\base\controller;
+namespace app\common\controller;
 
 use think\Controller;
 use think\Loader;
+
 class Base extends Controller
 {
     /**
@@ -53,11 +54,11 @@ class Base extends Controller
         //根据传入参数，对数据进行校验
         if($validate_name!=false){
             $result=$this->validate($data,$validate_name);
-            if(true!==$result) return $this->show('0','数据不合法',$result);
+            if(true!==$result) return $this->show('0',$result);
         }
         //加载传入的模型，执行方法
         $model_edit=Loader::model($model_name);
-        if($model_edit) return $this->show(0,'未找到模型数据');
+        if(!$model_edit) return $this->show(0,'未找到模型数据');
 
         return $model_edit->editData($data);
     }
