@@ -62,4 +62,18 @@ class Base extends Controller
 
         return $model_edit->editData($data);
     }
+    /**
+     * 全局模型执行方法
+     */
+    public function doModelAction($param_data,$validate_name=false,$model_name=false,$action_name="editData"){
+        //数据校验
+        if($validate_name!=false){
+            $result=$this->validate($param_data,$validate_name);
+            if(true !== $result) $this->show(0,$result);
+        }
+        //模型加载并执行方法
+        $model_edit=Loader::model($model_name);
+        if(!$model_edit) return $this->show(0,'模型加载失败');
+        return $model_edit->$action_name($param_data);
+    }
 }

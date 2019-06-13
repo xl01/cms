@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:83:"E:\myphp_www\PHPTutorial\WWW\6cms\public/../application/index\view\index\index.html";i:1560172378;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:83:"E:\myphp_www\PHPTutorial\WWW\6cms\public/../application/index\view\index\index.html";i:1560383513;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
