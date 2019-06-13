@@ -76,4 +76,20 @@ class Base extends Controller
         if(!$model_edit) return $this->show(0,'模型加载失败');
         return $model_edit->$action_name($param_data);
     }
+    /**
+     * 检测是否登录
+     */
+    public function checkLoginGLobal(){
+        $check_success=false;
+        switch ($this->loginType) {
+            case 1:
+            case "session":
+                $this->uuid=Session::get('uuid','Global');
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+    }
 }
