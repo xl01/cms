@@ -14,6 +14,6 @@ class Login extends Base
         ];
         $param=self::buildParam($param);
         
-        self::show(1,'数据返回',$param);
+        self::show(1,'数据返回',$this->request->isAjax());
     }
 }

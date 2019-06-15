@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:83:"D:\myphp_www\PHPTutorial\WWW\6cms\public/../application/admin\view\index\index.html";i:1560428730;s:75:"D:\myphp_www\PHPTutorial\WWW\6cms\application\admin\view\common\header.html";i:1560428730;s:75:"D:\myphp_www\PHPTutorial\WWW\6cms\application\admin\view\common\footer.html";i:1560428730;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:83:"D:\myphp_www\PHPTutorial\WWW\6cms\public/../application/admin\view\index\index.html";i:1560590534;s:75:"D:\myphp_www\PHPTutorial\WWW\6cms\application\admin\view\common\header.html";i:1560590534;s:75:"D:\myphp_www\PHPTutorial\WWW\6cms\application\admin\view\common\footer.html";i:1560590534;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>

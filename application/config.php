@@ -242,4 +242,7 @@ return [
         'var_page'  => 'page',
         'list_rows' => 15,
     ],
+    
+    //全局登录类型
+    'login_type'=> 'session'
 ];

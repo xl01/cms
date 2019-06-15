@@ -3,6 +3,8 @@ namespace app\common\controller;
 
 use think\Controller;
 use think\Loader;
+use think\Session;
+use think\Cache;
 
 class Base extends Controller
 { 
