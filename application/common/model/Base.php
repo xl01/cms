@@ -4,6 +4,10 @@ namespace app\common\model;
 use think\Model;
 
 abstract class Base extends Model{
+
+    static public function show($status='',$message='',$data=[]){
+        return \app\common\controller\Base::show($status='',$message='',$data=[]);
+    }
     /**
      * 根据有id 修改信息 无id 新增信息
      */

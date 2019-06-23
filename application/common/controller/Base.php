@@ -4,7 +4,6 @@ namespace app\common\controller;
 use think\Controller;
 use think\Loader;
 use think\Session;
-use think\Cache;
 
 class Base extends Controller
 { 
@@ -79,94 +78,70 @@ class Base extends Controller
         return $model_edit->$action_name($param_data);
     }
     /**
-     * 检测是否登录
+     * 生成随机数
+     *
      */
-    public function checkLoginGLobal(){
-        $check_success=false;
-        switch ($this->loginType) {
-            case 1:
-            case "session":
-                $this->uuid=Session::get('uuid','Global');
-                $this->member_info=Session::get('member_info','Global');
-                if($this->uuid && $this->member_info){
-                    $check_success=true;
-                }
-                break;
-            case 2:
-            case "cache":
-                $session_id_check=Cookie::get("session_id");
-                $this->uuid=Cache::get("uuid_{$session_id_check}");
-                $this->member_info=Cache::get("member_info_{$session_id_check}");
-                if($this->uuid && $this->member_info){
-                    $check_success =true;
-                }
-                //刷新 缓存有效期
-                Cache::set("uuid_{$session_id_check}",$this->uuid);
-                Cache::set("member_info_{$session_id_check}",$this->member_info);
-                break;
-                return $check_success;
-        }
-    }
+    static public function rdKey($length=8)   
+    {   
+       $pattern = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLOMNOPQRSTUVWXYZ';  
+       $key='';
+        for($i=0;$i<$length;$i++)   
+        {   
+            $key.= $pattern{mt_rand(0,35)};    //生成php随机数   
+        }   
+        return $key;   
+    }   
+
     /**
-     * 设置全局登录
+     * 保存登录信息
      */
-    public function setLoginGlobal($member_info=[],$login_code=0){
-        $set_success=false;
-        if($member_info){
-            switch($this->loginType){
-                case 1:
-                case "session":
-                    Session::set('member_info',$member_info,'Global');
-                    Session::set('uuid',$member_info['uuid'],'Global');
-                    if(Session::has('uuid',"Global")){
-                        $set_success=true;
-                    }
-                    break;
-                case 2:
-                case "cache":
-                    $session_id = $this->create_uuid("SN");
-                    Cookie::set("session_id", $session_id);
-                    Cache::set("member_info_$session_id", $member_info);
-                    Cache::set("uuid_$session_id", $member_info['uuid']);
-                    $session_id_check = Cookie::get("session_id");
-                    if ((Cache::get("uuid_{$session_id_check}"))) {
-                    $set_success = true;
+    public function saveLoginMes($member_info=[]){
+        $save_code=false;
+        if(!empty($member_info)&& is_array($member_info)){
+            //生成一个随机数
+            $rk=$this->rdKey();
+            //保存到session中
+            Session::set('uuid',$rk,'Global');
+            //保存uuid 登录信息
+            $member_info['uuid']=$rk;
+            $member_info['logintime']=time();
+            $member_info['loginip']=$this->request->ip();
+            if(Session::has('uuid','Global')){
+                $uuid=Session::get('uuid','Global');
+                Session::set('member_info'.$uuid,$member_info,'Global');
+                if(Session::has('member_info'.$uuid,'Global')){
+                    //信息绑定到request请求中
+                    $user=model('Admin')->get($member_info['id']);
+                    $this->request->bind('user',$user);
+                    $save_code=true;
                 }
-                    break;
             }
         }
-        if (!$set_success) return false;
-            //保存登录记录
-            $this->saveLoginInfo($member_info['uuid'],$login_code);
-
-            return true;
+        return $save_code;
+    }
+    /**
+     * 判断是否绑定了登录信息
+     */
+    public function checkLoginMes(){
+        $check_code=false;
+        if(Session::has('uuid','Global')){
+            $uuid=Session::get('uuid','Global');
+            if(Session::has('member_info'.$uuid,'Global')){
+                $mes=Session::get('member_info'.$uuid,'Global');
+                if(!empty($mes) && time()-$mes['logintime']<3600){
+                    $mes['logintime']=time();
+                    Session::set('member_info'.$uuid,$mes,'Global');
+                    $check_code=true;
+                }
+            }
         }
-        /**
-            * 全局退出
-            * Power by Mikkle
-            * QQ:776329498
-            * @return bool
-            */
-            protected function logoutGlobal(){
-                switch ($this->loginType) {
-                case 1:
-                case "session":
-                Session::delete('uuid', 'Global');
-                Session::delete('member_info', 'Global');
-                break;
-                case 2:
-                case "cache":
-                $session_id_check = Cookie::get("session_id");
-                Cache::rm("uuid_{$session_id_check}");
-                Cache::rm("member_info_{$session_id_check}");
-                Cookie::delete("session_id");
-                break;
-                case 3:
-                case "redis":
-                    break;
-                }
-                $this->member_info = null;
-                $this->uuid = null;
-                return true;
-                }
+        return $check_code;
+    }
+    /**
+     * 退出登录
+     */
+    public function clearLoginMes(){
+        Session::clear('Global');
+        Session::clear();
+    }
 }

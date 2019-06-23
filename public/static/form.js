@@ -29,22 +29,19 @@ FormHelper.prototype={
     bindEvent(){
         var that=this;
         $(that.button).on({click:function(){
-            var data=$(that.form).serializeArray();
-            postData={};
-            $(data).each(function(i){
-                postData[this.name]=this.value;
-            });
-            // console.log(postData);
-            //将数据post给服务器
-            $.post(that.url,postData,function(res){
-                if(res.status==1){
-                    //成功
-                    return dialog.success(res.message,that.tourl);
-                }else if(res.status==0){
-                    return dialog.error(res.message);
+            $(that.form).ajaxSubmit({
+                dataType : "json",
+                contentType : "application/x-www-form-urlencoded; charset=UTF-8",
+                success : function(res) {
+                    if(res.status==1){
+                        //成功
+                         dialog.success(res.message,that.tourl);
+                    }else if(res.status==0){
+                         dialog.error(res.message);
+                    }
                 }
-            },'json');
-
+            });
+            return false; 
         }
         });
     }

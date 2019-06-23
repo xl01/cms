@@ -244,5 +244,17 @@ return [
     ],
     
     //全局登录类型
-    'login_type'=> 'session'
+    'login_type'=> 'session',
+    //验证码
+    'captcha' => [
+        // 字体大小
+        'fontSize' => 20,
+        // 验证码长度（位数）
+        'length' => 4,
+
+        'imageH' => 60,
+
+        'imageW' => 140,
+
+    ],
 ];

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:83:"E:\myphp_www\PHPTutorial\WWW\6cms\public/../application/admin\view\index\index.html";i:1560469195;s:75:"E:\myphp_www\PHPTutorial\WWW\6cms\application\admin\view\common\header.html";i:1560469195;s:75:"E:\myphp_www\PHPTutorial\WWW\6cms\application\admin\view\common\footer.html";i:1560469195;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:83:"E:\myphp_www\PHPTutorial\WWW\6cms\public/../application/admin\view\index\index.html";i:1560642643;s:75:"E:\myphp_www\PHPTutorial\WWW\6cms\application\admin\view\common\header.html";i:1561269538;s:75:"E:\myphp_www\PHPTutorial\WWW\6cms\application\admin\view\common\footer.html";i:1560642643;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +24,7 @@
     <!--弹出框-->
     <script type="text/javascript" src="http://my.cms.com/static/dialog/layer.js"></script>
     <script type="text/javascript" src="http://my.cms.com/static/dialog.js"></script>
+    <script type="text/javascript" src="http://my.cms.com/static/jquery.form.js"></script>
     <script type="text/javascript" src="http://my.cms.com/static/form.js"></script>
 </head>
 
