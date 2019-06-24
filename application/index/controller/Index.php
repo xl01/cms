@@ -5,6 +5,9 @@ class Index extends Base
 {
     public function index()
     {
-        return $this->fetch();
+        $hello='hello word！';
+        return $this->fetch('',[
+            'hello'=>$hello
+        ]);
     }
 }
